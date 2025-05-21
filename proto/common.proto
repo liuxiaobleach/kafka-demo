@@ -1,0 +1,9 @@
+syntax = "proto3";
+package common;
+
+option go_package = "github.com/liuxiaobleach/kafka-demo/pb";
+
+message Data {
+  uint64 code = 1;
+  string msg = 2;
+}
