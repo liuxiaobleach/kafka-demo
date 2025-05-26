@@ -1,7 +1,26 @@
 syntax = "proto3";
 package common;
 
+import "google/api/annotations.proto";
+
 option go_package = "github.com/liuxiaobleach/kafka-demo/pb";
+
+service InternalGateway {
+  rpc GetData(GetDataRequest) returns (GetDataResponse) {
+    option (google.api.http) = {
+      post: "/v1/get_data"
+      body: "*"
+    };
+  }
+}
+
+message GetDataRequest {
+
+}
+
+message GetDataResponse {
+    Data data=1;
+}
 
 message Data {
   uint64 code = 1;
